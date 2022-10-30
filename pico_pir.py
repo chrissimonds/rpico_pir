@@ -45,7 +45,7 @@ led.off()
 pir = Pin(16, Pin.IN, Pin.PULL_UP)
 
 while True:
-    led.off()
+
     # please create a new file the first time from the command line with the following
     # file = open("data.txt","w")
     # file.close()
