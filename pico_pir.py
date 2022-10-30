@@ -11,13 +11,18 @@ print('Welcome, here is the system info:')
 print (str(sys.implementation))
 print()
 
-# Timestamp class RTC will set time correctly when using Thonny
-# otherwise clock will init wrong value
+# Timestamp class RTC will set time correctly when using Thonny and manually initiated
+# otherwise clock will init to the wrong value of 2021-01-01 00:00:01
 rtc=machine.RTC()
 timestamp=rtc.datetime()
 timestring="%04d-%02d-%02d %02d:%02d:%02d"%(timestamp[0:3] + timestamp[4:7])
 
 print ('Date and Time = ' + timestring)
+
+file = open("data.txt")
+file.read()
+file.write(timestring + ",Sys Info: " + str(sys.implementation) + "\n")
+file.close()
 
 # Read and print the CPU temperature 
 # sensor_temp = machine.ADC(4)
@@ -38,7 +43,6 @@ led.off()
 # Also dials may need to be adjusted but should not be
 # Connect GP16 to PIR sensor's OUT pin), please use 3.3V connect to VCC on PIR sensor and GND to GND
 pir = Pin(16, Pin.IN, Pin.PULL_UP)
-print(pir.value())
 
 while True:
     led.off()
@@ -50,14 +54,13 @@ while True:
     file.read()
     file.write(timestring + ", Temp " + str(temperature) + "\n")
     file.write(timestring + ", PIR  " + str(pir.value()) + "\n")
-    file.flush()
+#    file.flush()
     file.close()
+    sleep(1)
     print(pir.value())   
     if pir.value() != 0:
         print('Motion Detected')
         led.on()
-        sleep(0.1)
     else:
         print('waiting for movement')
         led.off()
-        sleep(0.1)
