@@ -12,3 +12,4 @@ Connect the Pico's GND pin to PIR sensor's GND pin.
 
 Please note to create a data.txt file manually on the Pico prior to running the program the first time.
 
+<img src="pico_pir_sensor_bb.png" alt="Alt text" title="Wiring Diagram">
