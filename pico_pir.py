@@ -67,15 +67,15 @@ pir = Pin(16, Pin.IN, Pin.PULL_UP)
 while True:
     file = open("data.txt")
     file.read()
-    file.write(timestring + ", Temp " + str(temperature) + "\n")
+    file.write(timestring + ", Temp " + str(temperature) + ' C  ' + str(fahrenheit) + ' F' + "\n")
     file.write(timestring + ", PIR  " + str(pir.value()) + "\n")
 #    file.flush()
     file.close()
     sleep(1)
     print(pir.value())   
     if pir.value() != 0:
-        print('Motion Detected')
+        print('Motion Detected and Temperature is ' + str(temperature) + ' C  ' + str(fahrenheit) + ' F') 
         led.on()
     else:
-        print('waiting for movement')
+        print('Waiting for movement and Temperature is ' + str(temperature) + ' C  ' + str(fahrenheit) + ' F') 
         led.off()
