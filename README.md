@@ -12,4 +12,10 @@ Connect the Pico's GND pin to PIR sensor's GND pin.
 
 Please note to create a data.txt file manually on the Pico prior to running the program the first time.
 
+pico_pir.py is the main python program.
+
+pico_pir_sensor.fzz is the Fritzing diagram. See https://fritzing.org/
+
+pico_pir_sensor_bb.png is the wiring diagram below:
+
 <img src="pico_pir_sensor_bb.png" alt="Alt text" title="Wiring Diagram">
