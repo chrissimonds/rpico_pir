@@ -1,3 +1,7 @@
+# This program is using the Raspberry Pi Pico to gather data using a simple PIR sensor
+# This program was written so as it could be used with either Pico or Pico W
+# This was written using MicroPython version 1.19.1 
+
 import rp2
 import machine
 from machine import Pin
@@ -14,7 +18,7 @@ print('Welcome, here is the system info:')
 print (str(sys.implementation))
 print()
 
-# Timestamp class RTC will set time correctly when using Thonny and manually initiated
+# Timestamp class RTC will set time correctly when using Thonny and connected to a computer and manually initiated
 # otherwise clock will init to the wrong value of 2021-01-01 00:00:01
 rtc=machine.RTC()
 timestamp=rtc.datetime()
@@ -63,7 +67,7 @@ led.off()
 pir = Pin(16, Pin.IN, Pin.PULL_UP)
 
 
-# Main program loop to write to data.txt
+# Main program loop to run sensor and write info to data.txt
 while True:
     file = open("data.txt")
     file.read()
